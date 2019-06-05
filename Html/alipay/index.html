@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+				background-color: white;
+			}
+			.alimain{
+				width: 100%;
+				height: 100%;
+				background-color: white;
+			}
+			.nav{
+				background-color: white;
+				height: 11%;
+				width: 100%;
+				position: absolute;
+				z-index: 2;
+				opacity: 0.74;
+			}
+			.head_one{
+				position: absolute;
+				width: 100%;
+				height: 30%;
+				color: #FFFFFF;
+				float: left;
+				padding-left: 6.25rem;
+				background-color: #000000;
+			}
+			.person{
+				float: left;
+				position: absolute;
+				font-size:12px ;
+				margin-left:0.625rem;
+			}
+			.zhifubao{
+				font-size:12px ;
+				float: none;
+				position: absolute;
+				padding-left: 62.5rem;
+			}
+			.content{
+				height: 100%;
+				width: 100%;
+				background-color: aliceblue;
+				position: absolute;
+				background-image: url(img/bg.png);
+				background-size: 100% 100%;
+			}
+			.head_two{
+				float: left;
+				opacity: 0.74;
+				width: 100%;
+				position: absolute;
+				top: 3%;
+			}
+			.ul_oriten{
+				margin-left: 31.25rem;
+				margin-top: 10px;
+			}
+			.alilog{
+				display: block;
+				float: left;
+				padding-left: 7.5rem;
+				padding-top: 32px;
+			}
+			.li_sy{
+				padding: 0 2.5rem;
+				line-height: 80px;
+				display: block;
+				font-size: 1rem;
+				float: left;
+				height: 5rem;
+				font-family: "agency fb";
+				color: #000000;
+			}
+			.li_qita{
+				padding: 0 30px;
+				line-height: 80px;
+				display: block;
+				float: left;
+				font-size: 1rem;
+				font-family: "agency fb";
+				color: black;
+			}
+			.li_qita:hover {
+				color:blue;
+			}
+			.con_img{
+				float: center;
+				z-index: 2;
+				position: relative;
+				text-align: center;	
+			}
+			.center{
+				top:50%;
+				left:50%;
+				position: absolute;
+				width: 26.25rem;
+				height: 12.5rem;
+				margin-left: -195px;
+				margin-top: -40px;
+			}
+			.video-play{
+				border-radius: 1.5625rem;
+				display: block;
+				position: absolute;
+				width: 2.25rem;
+				right: -2.5rem;
+				bottom: 8.125rem;
+				height: 2.25rem;
+				background-image: url(img/play.png);
+				background-repeat: no-repeat;
+				opacity: 0.7;
+			}
+
+			.button-register{
+				text-align: center;
+				cursor: pointer;
+				display: block;
+				border-radius: 3px;
+				outline: none;
+				border: none;
+				font-size: 14px;
+				line-height: 30px;
+				height: 28px;
+				width: 186px;
+				color: #FFFFFF;
+				border-width: 1px;
+				border-style: solid;
+				margin-right: 20px;
+				float: left;
+				text-decoration:none
+			}
+			.button-login{
+				background-color: #00bbee;
+				text-align: center;
+				cursor: pointer;
+				display: block;
+				border-radius: 3px;
+				outline: none;
+				border: none;
+				font-size: 14px;
+				line-height: 30px;
+				height: 30px;
+				width: 186px;
+				color: #FFFFFF;
+				border-width: 0px;
+				border-style: solid;
+				margin-right: 20px;
+				float: left;
+				text-decoration:none
+			}
+			li{
+				list-style: none;
+				text-align: center;
+				display: list-item;	
+			}
+			video{
+				height: 100%;
+				width: 100%;
+				object-fit:fill;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="alimain" id = "li_font">
+			<div class="nav">
+				<div class="head_one">
+					<div class="person">
+						<ul>
+							<li style="float: left;margin: 0 0.9375rem;">个人</li>
+							<li style="float: left;margin: 0 0.9375rem;">企业</li>
+							<li style="float: left;margin: 0 0.9375rem;">合作伙伴</li>
+						</ul>
+					</div>
+					<div class="zhifubao" style="padding-left: 18.75rem">
+						<ul style="padding-left: 50rem;">
+							<li style="float: left;margin: 0 0.3125rem;">支付宝APP</li>
+							<li style="float: left;margin: 0 0.3125rem;">|</li>
+							<li style="float: left;margin: 0 0.3125rem;">客户服务</li>
+						</ul>
+					</div>
+				</div>
+				<div class="head_two">
+					<div class="alilog">
+						<img src="img/logo.png" />
+					</div>
+					<div class="ul_oriten">
+						<ul>
+							<li class="li_sy" font color="red"> 
+								<a href style="text-decoration:none">首页</a>
+							</li>
+							<li class="li_qita" onmouseout="this.style.color='blue'>
+								<a href="http://www.baidu.com">财富中心</a>
+							</li>
+							<li class="li_qita" onmouseout="this.style.color='blue'>
+								<a href="http://www.baidu.com">安全保证<a>
+							</li>
+							<li class="li_qita" >  
+								|
+							</li>
+							<li class="li_qita" onmouseout="this.style.color='blue'>
+								<a href="http://www.baidu.com">商家中心<a>
+							</li>
+							<li class="li_qita" onmouseout="this.style.color='blue'>
+								<a href="http://www.baidu.com">开放平台<a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<video autoplay="autoplay" id="video" muted="muted">
+					<source src="img/video"></source>
+				</video>
+			</div>
+			<div class="center">
+				<img class="con_img" src="img/text.png"/>
+				<a  class="button-login" >登陆</a>
+				<a class="button-register" >立即注册</a>
+				<a onclick="videoreplay()" id="videoplay" class="content video-play" href="javascript:void(0)"></a>
+			</div>
+		</div>
+	</body>
+	<script>
+		var myvideo = document.getElementById("video")
+		var replay = document.getElementById("videoplay")
+		// myvideo.load();
+		setInterval(function(){
+			if(myvideo.ended)
+			{
+				myvideo.style.display = "none"
+				replay.style.display = "block"
+			};
+			function videoreplay()
+			{
+				myvideo.load();
+				replay.style.display = "none"	
+			}
+		},1)
+		
+			
+	</script>
+</html>
