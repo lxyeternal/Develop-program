@@ -6,8 +6,8 @@
 仿https://www.alipay.com/网站首页的设计，沉浸式网页的设计。
 如下图分别是真是页面（左）以及仿写页面（右）
 <div align="center">
-<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/raw/master/alipay/2.png"/>
-<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/raw/master/alipay/1.png"/>
+<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/alipay/raw/master/2.png"/>
+<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/alipay/raw/master/1.png"/>
 </div>
 
 ### Alipay
@@ -15,6 +15,6 @@
 该应用是一个天气查看软件，可以输入搜索查看城市的天气。
 如下图分别是原始（左）以及查看成都的天气（右），可以发现温度为33度
 <div align="center">
-<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/raw/master/WeatherApp/1.png"/>
-<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/raw/master/WeatherApp/2.png"/>
+<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/WeatherApp/raw/master/1.png"/>
+<img width="260" height="450" src="https://github.com/wenboi/Develop-program/Html/WeatherApp/raw/master/2.png"/>
 </div>
