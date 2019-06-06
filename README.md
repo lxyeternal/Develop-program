@@ -6,8 +6,8 @@
 仿https://www.alipay.com/网站首页的设计，沉浸式网页的设计。
 如下图分别是真是页面（左）以及仿写页面（右）
 <div align="center">
-<img width="260" height="450" src="https://github.com/wenboi/Develop-program/raw/master/Html/alipay/2.png"/>
-<img width="260" height="450" src="https://github.com/wenboi/Develop-program/raw/master/Html/alipay/1.png"/>
+<img src="https://github.com/wenboi/Develop-program/raw/master/Html/alipay/2.png"/>
+<img src="https://github.com/wenboi/Develop-program/raw/master/Html/alipay/1.png"/>
 </div>
 
 ### Alipay
