@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>天气小助手</title>
+	<script src="js/jquery.js"></script>
+    <script type="text/javascript">
+		
+		$(function(){
+			//点击查询按钮方法
+			$("#btn").click(function(){
+				var city = $("#city").val();
+			//异步请求
+			//配置方法使用花括号
+			$.ajax({
+				url:'http://zb.zhiliaotang.net/wapi.php?city='+city, //请求地址
+				dataType:'json',//返回数据
+				success:function (d) {
+					//请求成功且返回
+					console.log(d);
+					var tmp = d.result[0].temperature;
+					$(".w_tmp")[0].innerHTML = tmp;
+				},
+				error:function (d) {
+					//请求成功且返回失败,请求失败
+				}
+			});
+			});
+		});
+   		
+    </script>
+		<style>
+		.*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			height: 100%;
+			width: 100%;
+		}
+		.w_warp{
+			height: 100%;
+			width: 100%;
+			background-color: aliceblue;
+		}
+		.w_top{
+			height: 10%;
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			}
+		.w_today{
+			height: 40%;
+			width: 100%;
+		}
+		.w_list{
+			height: 50%;
+			width: 100%;
+			/* background-color: black; */
+		}
+		.w_top>button{
+			border: none;
+			height: 1.875rem;
+			width: 5rem;
+			border-radius: 1.875rem;
+		}
+		.w_top>input{
+			padding-left: 0.3125rem;
+			padding-right: 0.3125rem;
+			font-family: "arial black";
+			border:none;
+			height:30px;
+			width: 70%;
+			border-radius: 1.875rem;
+			box-shadow: 0px 0px 1px 1px cadetblue;
+		}	
+		.w_today div{
+			width: 80%;
+			margin: 0 auto;
+			text-align: center;
+			color: white;
+			/* 水平,垂直,模糊范围,颜色，内阴影，外阴影（默认为外）*/ 
+			text-shadow: 2px 1px 1px #5F9EA0;
+		}
+		.w_today .w_tmp{
+			font-size: 2rem;
+			/* box-shadow: 2px 0px 0px 1px red; */
+		}
+		</style>
+	<div class="w_warp">
+		<!-- top -->
+		<div class="w_top">
+			<input value="" id="city" placeholder="请输入中文城市" />
+			<button id="btn">查询</button>
+		</div>
+		<!--  中间部分 -->
+		<div class="w_today">
+			<div class="w_tmp">12℃</div>
+			<div class="w_icon">
+				<img src="img/Partly%20Cloudy%20Day_96px.png">
+			</div>
+			<div class="w_text">多云转晴</div>
+			<div class="w_info">薄短袖类，不适宜外出</div>
+		</div>
+		<!-- 下栏 -->
+		<div class="w_list">
+			
+		</div>
+		
+	</div>
+	
+</body>
+</html>
