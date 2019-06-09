@@ -5,8 +5,32 @@
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>天气小助手</title>
 	<script src="js/jquery.js"></script>
+	<script src="js/echarts.js"></script>
     <script type="text/javascript">
-		
+		function change_icon(a_icon){
+			
+			if(a_icon == "零散阵雨")
+			{
+				icon = "img/zhenyu.png";
+			}
+			else if(a_icon == "雨" || a_icon == "阵雨")
+			{
+				icon = "img/xiaoyu.png";
+			}
+			else if(a_icon == "局部多云")
+			{
+				icon = "img/duoyun.png";
+			}
+			else if(a_icon == "阴天")
+			{
+				icon = "img/yin.png";
+			}
+			else
+			{
+				icon = "img/qin.png";
+			}
+			return icon;
+		}
 		$(function(){
 			//点击查询按钮方法
 			$("#btn").click(function(){
@@ -19,8 +43,49 @@
 				success:function (d) {
 					//请求成功且返回
 					console.log(d);
+					var no2 = d.result[0].airQuality.no2;
+					var pm25 = d.result[0].airQuality.pm25;
+					var pm10 = d.result[0].airQuality.pm10;
+					var so2 = d.result[0].airQuality.so2;
 					var tmp = d.result[0].temperature;
+					var text = d.result[0].future[0].dayTime;
+					var one_tmp = d.result[0].future[0].temperature;
+					var two_tmp = d.result[0].future[1].temperature;
+					var three_tmp = d.result[0].future[2].temperature;
+					var four_tmp = d.result[0].future[3].temperature;
+					var five_tmp = d.result[0].future[4].temperature;
+					var six_tmp = d.result[0].future[5].temperature;
+					var one_icon = d.result[0].future[0].dayTime;
+					var two_icon = d.result[0].future[1].dayTime;
+					var three_icon = d.result[0].future[2].dayTime;
+					var four_icon = d.result[0].future[3].dayTime;
+					var five_icon = d.result[0].future[4].dayTime;
+					var six_icon = d.result[0].future[5].dayTime;
+					$(".so2_num")[0].innerHTML = so2;
+					$(".no2_num")[0].innerHTML = no2;
+					$(".pm10_num")[0].innerHTML = pm10;
+					$(".pm25_num")[0].innerHTML = pm25;
+					one_icon = change_icon(one_icon);
+					$(".one_icon").attr("src",one_icon);
+					two_icon = change_icon(two_icon);
+					$(".two_icon").attr("src",two_icon);
+					three_icon = change_icon(three_icon);
+					$(".three_icon").attr("src",three_icon);
+					four_icon = change_icon(four_icon);
+					$(".four_icon").attr("src",four_icon);
+					five_icon = change_icon(five_icon);
+					$(".five_icon").attr("src",five_icon);
+					six_icon = change_icon(six_icon);
+					$(".six_icon").attr("src",six_icon);
 					$(".w_tmp")[0].innerHTML = tmp;
+					$(".w_text")[0].innerHTML = text;
+					$(".one_tmp")[0].innerHTML = one_tmp;
+					$(".two_tmp")[0].innerHTML = two_tmp;
+					$(".three_tmp")[0].innerHTML = three_tmp;
+					$(".four_tmp")[0].innerHTML = four_tmp;
+					$(".five_tmp")[0].innerHTML = five_tmp;
+					$(".six_tmp")[0].innerHTML = six_tmp;
+					
 				},
 				error:function (d) {
 					//请求成功且返回失败,请求失败
@@ -36,13 +101,15 @@
 			padding: 0;
 		}
 		html,body{
+			/* overflow-x: hidden; */
+			overflow-y: hidden;
 			height: 100%;
 			width: 100%;
 		}
 		.w_warp{
 			height: 100%;
 			width: 100%;
-			background-color: aliceblue;
+			background-image: url(img/11.jpg);
 		}
 		.w_top{
 			height: 10%;
@@ -52,19 +119,85 @@
 			align-items: center;
 			}
 		.w_today{
-			height: 40%;
+			padding-top: 30px;
+			border-radius: 25px;
+			text-align: center;
+			height: 20%;
 			width: 100%;
+			margin-bottom: 20px;
+			background-color: #00FFFF;
 		}
 		.w_list{
+			padding-top: 10px;
+			border-radius: 1.5625rem;
 			height: 50%;
 			width: 100%;
-			/* background-color: black; */
 		}
 		.w_top>button{
 			border: none;
 			height: 1.875rem;
 			width: 5rem;
 			border-radius: 1.875rem;
+		}
+		.one_day{
+			width: 100%;
+			height: 10%;
+		}
+		.one_day .one_day_time{
+			float: left;
+			width:40%;
+			font-size: 1rem;
+		}
+		.one_day .one_day_tmp{
+			text-align: right;
+			float: right;
+			width:40%;
+			font-size: 1rem;
+		}
+		.one_day .one_day_icon{
+			width: 20%;
+			float: left;
+			text-align: center;
+			font-size: 1rem;
+		}
+		.airquality{
+			width: 100%;
+			height: 40%;
+		}
+		.air_icon{
+			float: left;
+			text-align: center;
+			width: 50%;
+			height: 100%;
+		}
+		.air_num{
+			padding-top: 1.25rem;
+			float: left;
+			text-align: center;
+			width: 50%;
+			height: 100%;
+		}
+		.pm_list{
+			
+			width: 100%;
+			height: 16%;
+			text-align: center;
+			float: left;
+			display: inline;
+		}
+		.pm_list .pm_1{
+			text-align: center;
+			padding-top: 5px;
+			float: left;
+			width: 50%;
+			color: black;
+		}
+		.pm_list .pm_2{
+			padding-top: 5px;
+			float: left;
+			width: 50%;
+			text-align: center;
+			color: #FFFFFF;
 		}
 		.w_top>input{
 			padding-left: 0.3125rem;
@@ -96,17 +229,254 @@
 			<button id="btn">查询</button>
 		</div>
 		<!--  中间部分 -->
-		<div class="w_today">
-			<div class="w_tmp">12℃</div>
-			<div class="w_icon">
-				<img src="img/Partly%20Cloudy%20Day_96px.png">
-			</div>
-			<div class="w_text">多云转晴</div>
-			<div class="w_info">薄短袖类，不适宜外出</div>
+		<div class="w_today" style="background-image: url(img/sun3.jpeg);">
+			<div class="w_tmp">温度</div>
+			<div class="w_text">天气状态</div>
+			<div class="w_info">适合穿T恤、短薄外套等夏季服装</div>
 		</div>
-		<!-- 下栏 -->
 		<div class="w_list">
+			<hr />
+			<div class="one_day">
+				<div class="one_day_time">
+					<div class="one_time">
+						6月10日明天
+					</div>
+				</div>
+				<div class="one_day_icon">
+					<img class="one_icon" src="img/Partly%20Cloudy%20Day_96px.png" width="25px" height="25px"/>
+				</div>
+				<div class="one_day_tmp">
+					<div class="one_tmp">
+						28℃/30℃
+					</div>
+				</div>
+			</div>
 			
+			<div class="one_day">
+				<div class="one_day_time">
+					<div class="two_time">
+						6月11日星期二
+					</div>
+				</div>
+				<div class="one_day_icon">
+					<img class="two_icon" src="img/Partly%20Cloudy%20Day_96px.png" width="25px" height="25px"/>
+				</div>
+				<div class="one_day_tmp">
+					<div class="two_tmp">
+						28℃/30℃
+					</div>
+				</div>
+			</div>
+			
+			<div class="one_day">
+				<div class="one_day_time">
+					<div class="three_time">
+						6月12日星期三
+					</div>
+				</div>
+				<div class="one_day_icon">
+					<img class="three_icon" src="img/Partly%20Cloudy%20Day_96px.png" width="25px" height="25px"/>
+				</div>
+				<div class="one_day_tmp">
+					<div class="three_tmp">
+						28℃/30℃
+					</div>
+				</div>
+			</div>
+			
+			<div class="one_day">
+				<div class="one_day_time">
+					<div class="four_time">
+						6月13日星期四
+					</div>
+				</div>
+				<div class="one_day_icon">
+					<img class="four_icon" src="img/Partly%20Cloudy%20Day_96px.png" width="25px" height="25px"/>
+				</div>
+				<div class="one_day_tmp">
+					<div class="four_tmp">
+						28℃/30℃
+					</div>
+				</div>
+			</div>
+			
+			<div class="one_day">
+				<div class="one_day_time">
+					<div class="five_time">
+						6月14日星期五
+					</div>
+				</div>
+				<div class="one_day_icon">
+					<img class="five_icon" src="img/Partly%20Cloudy%20Day_96px.png" width="25px" height="25px"/>
+				</div>
+				<div class="one_day_tmp">
+					<div class="five_tmp">
+						28℃/30℃
+					</div>
+				</div>
+			</div>
+			
+			<div class="one_day">
+				<div class="one_day_time">
+					<div class="six_time">
+						6月15日星期六
+					</div>
+				</div>
+				<div class="one_day_icon">
+					<img class="six_icon" src="img/Partly%20Cloudy%20Day_96px.png" width="25px" height="25px"/>
+				</div>
+				<div class="one_day_tmp">
+					<div class="six_tmp">
+						28℃/30℃
+					</div>
+				</div>
+			</div>
+			<hr />
+			<div class="airquality">
+				<p style="color: #FFFFFF; font-size: 1rem;">空气质量</p>
+				<div class="air_icon">
+					 <div id="main3" style="height: 150px;width:150px;"></div>
+					 <script type="text/javascript">
+					 var myChart3 = echarts.init(document.getElementById('main3'));
+					 option = {
+						title: [{
+							textStyle: {
+								color: "#333",
+								fontSize: "14"
+							}
+						}],
+			
+						tooltip: {
+							formatter: '{b} ({c} 处)'
+						},
+						series: [{
+								name: '',
+								type: 'pie',
+								radius: '60%',
+								center: ['70%', '45%'],
+								hoverAnimation: false,
+								data: [{
+									"value": 100,
+									"name": "PM10"
+								}, {
+									"value": 200,
+									"name": "PM25"
+								}, {
+									"value": 200,
+									"name": "No2"
+								},
+								{
+									"name": "So2",
+									"value": 300
+								}],
+								labelLine: {
+									normal: {
+										show: true,
+										length: 5,
+										length2: 5
+									}
+								},
+								itemStyle: {
+									normal: {
+										label: {
+											show: true,
+											position: 'inside'
+										
+										}
+									}
+								}
+							},
+							{
+								name: '其他',
+								type: 'pie',
+								clockWise: false,
+								radius: ['70%', '80%'],
+								center: ['70%', '45%'],
+								data: [{
+									"value": 36069,
+									"name": "采集库相等"
+								}, {
+									"value": 10492,
+									"name": "相等-拼单"
+								}, {
+									"value": 3843,
+									"name": "采集库小"
+								},{
+									"value":13517,
+									"name":"placeholder",
+									"itemStyle": {
+										"normal": {
+											"label": {
+												"show": false
+											},
+											"labelLine": {
+												"show": false
+											},
+											"color": "transparent",
+											"borderColor": "transparent",
+											"borderWidth": 0
+										},
+										"emphasis": {
+											"color": "transparent",
+											"borderColor": "transparent",
+											"borderWidth": 0,
+											"label": {
+												"show": false
+											}
+										}
+									}
+								}],
+								labelLine: {
+									normal: {
+										show: true,
+										length: 10,
+										length2: 10
+									}
+								},
+								itemStyle: {
+									normal: {
+										label: {
+											show: true,
+											formatter: '{b}({d}%)'
+										}
+									}
+								}
+							}
+			
+						]
+			
+					};
+						myChart3.setOption(option,true);		
+					</script>
+				</div>
+				<div class="air_num">
+					<div class="pm_list">
+						<div class="pm pm_1">
+							<div class="pm10">PM10</div>
+						</div>
+						<div class="pm pm_2">
+							<div class="pm10_num">25</div>
+						</div>
+						<div class="pm pm_1">
+							<div class="pm10">PM25</div>
+						</div>
+						<div class="pm pm_2">
+							<div class="pm25_num">25</div>
+						</div>
+						<div class="pm pm_1">
+							<div class="pm10">No2</div>
+						</div>
+						<div class="pm pm_2">
+							<div class="no2_num">25</div>
+						</div>
+						<div class="pm pm_1">
+							<div class="pm10">So2</div>
+						</div>
+						<div class="pm pm_2">
+							<div class="so2_num">25</div>
+						</div>
+					</div>
+				</div>
 		</div>
 		
 	</div>
